@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "xtemplate"
+version = "0.1.0"
+description = ""
+authors = ["Ahmed Salim <ahmedslim12@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+cmake = "^3.27.7"
+make = "^0.1.6.post2"
+gcovr = "^6.0"
+ninja = "^1.11.1.1"
+lcov = "^1.15.5a0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
