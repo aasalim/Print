@@ -46,6 +46,24 @@ uint8_t print(const char* str)
     return writeBytes((const uint8_t*)str, strlength(str));
 }
 
+uint8_t println(const char* str)
+{
+    /**
+     * @brief Print the specified string.
+     */
+    uint8_t n = print(str);
+
+    /**
+     * @brief Print a newline character sequence ("\r\n").
+     */
+    n += newline();
+
+    /**
+     * @brief Return the total number of characters printed.
+     */
+    return n;
+}
+
 uint8_t printBuffer(const char* buffer, uint8_t size)
 {
     /**
@@ -193,4 +211,27 @@ uint8_t printFloat(double number, uint8_t precision)
      * @brief Return the total number of characters printed.
      */
     return n;
+}
+
+uint8_t printBool(uint8_t value)
+{
+    /**
+     * @brief Check if the boolean value is true.
+     */
+    if (value) {
+        return print("true");
+    }
+
+    /**
+     * @brief If the boolean value is false, print "false".
+     */
+    return print("false");
+}
+
+uint8_t newline(void)
+{
+    /**
+     * @brief Print the newline character sequence ("\r\n").
+     */
+    return print("\r\n");
 }

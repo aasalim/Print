@@ -333,3 +333,75 @@ TEST_F(PrintUnitTests, Test_printFloat_Negative_Ovf)
     /* Assert */
     EXPECT_EQ(result, 3);
 }
+
+TEST_F(PrintUnitTests, Test_printBool_True)
+{
+    /* Arrange */
+    MocksSerial Serial;
+    pMocksSerial = &Serial;
+    uint8_t output[4] = { 't', 'r', 'u', 'e' };
+
+    EXPECT_CALL(Serial, writeBytes(_, _))
+        .With(::testing::Args<0, 1>(::testing::ElementsAreArray(output)))
+        .WillOnce(::testing::DoAll(
+            ::testing::Return(sizeof(output))));
+
+    /* Act */
+    result = printBool(true);
+
+    /* Assert */
+    EXPECT_EQ(result, 4);
+}
+
+TEST_F(PrintUnitTests, Test_printBool_False)
+{
+    /* Arrange */
+    MocksSerial Serial;
+    pMocksSerial = &Serial;
+
+    uint8_t output[5] = { 'f', 'a', 'l', 's', 'e' };
+
+    EXPECT_CALL(Serial, writeBytes(_, _))
+        .With(::testing::Args<0, 1>(::testing::ElementsAreArray(output)))
+        .WillOnce(::testing::DoAll(
+            ::testing::Return(sizeof(output))));
+
+    /* Act */
+    result = printBool(false);
+
+    /* Assert */
+    EXPECT_EQ(result, 5);
+}
+TEST_F(PrintUnitTests, Test_newline)
+{
+    /* Arrange */
+    MocksSerial Serial;
+    pMocksSerial = &Serial;
+
+    uint8_t output[2] = { '\r', '\n' };
+
+    EXPECT_CALL(Serial, writeBytes(_, _))
+        .With(::testing::Args<0, 1>(::testing::ElementsAreArray(output)))
+        .WillOnce(::testing::DoAll(
+            ::testing::Return(sizeof(output))));
+
+    /* Act */
+    result = newline();
+
+    /* Assert */
+    EXPECT_EQ(result, 2);
+}
+TEST_F(PrintUnitTests, Test_println)
+{
+    /* Arrange */
+    MocksSerial Serial;
+    pMocksSerial = &Serial;
+
+    EXPECT_CALL(Serial, writeBytes(_, _)).Times(2).WillOnce(::testing::Return(11)).WillOnce(::testing::Return(2));
+
+    /* Act */
+    result = println("Hello World");
+
+    /* Assert */
+    EXPECT_EQ(result, 13);
+}

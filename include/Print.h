@@ -28,6 +28,17 @@ uint8_t strlength(const char* str);
 uint8_t print(const char* str);
 
 /**
+ * @brief Prints a string followed by a newline ("\r\n").
+ *
+ * This function prints the specified string, followed by a newline character
+ * sequence ("\r\n"). It returns the total number of characters printed.
+ *
+ * @param str The string to be printed.
+ * @return The number of characters printed.
+ */
+uint8_t println(const char* str);
+
+/**
  * @brief Writes a buffer of characters to an output device or stream.
  *
  * @param buffer Pointer to the buffer containing the characters to be printed.
@@ -69,6 +80,26 @@ uint8_t printDigits(unsigned long number, uint8_t base);
  */
 uint8_t printFloat(double number, uint8_t precision);
 
+/**
+ * @brief Prints a boolean value as "true" or "false".
+ *
+ * This function prints a boolean value as either "true" or "false" and
+ * returns the number of characters printed.
+ *
+ * @param value The boolean value to be printed.
+ * @return The number of characters printed.
+ */
+uint8_t printBool(uint8_t value);
+
+/**
+ * @brief Prints a newline ("\r\n") and moves to the next line.
+ *
+ * This function prints a newline character sequence ("\r\n") to the output
+ * and moves to the next line. It returns the number of characters printed.
+ *
+ * @return The number of characters printed.
+ */
+uint8_t newline(void);
 /* Interface Functions */
 extern uint8_t writeByte(uint8_t byte);
 extern uint8_t writeBytes(const uint8_t* buffer, uint8_t size);
