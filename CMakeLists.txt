@@ -28,6 +28,7 @@ include(Warnings)
 include(StaticAnalyzers)
 include(Cache)
 check_enable_cache()
+
 tool_enable_cppcheck(ON "")
 
 # External Submodules
@@ -35,6 +36,7 @@ add_subdirectory(external)
 
 # Source Directory
 add_subdirectory(src)
+
 target_set_warnings(Print ENABLE ALL AS_ERROR ALL DISABLE Annoying) # Helper that can set default warning flags for you
 
 # Examples
