@@ -18,6 +18,7 @@ macro(tool_enable_cppcheck WARNINGS_AS_ERRORS CPPCHECK_OPTIONS)
                 --template=${CPPCHECK_TEMPLATE}
                 --enable=style,performance,warning,portability
                 --inline-suppr
+                --suppress=*:*build\*
                 --suppress=*:*external\*
 
                 # We cannot act on a bug/missing feature of cppcheck
