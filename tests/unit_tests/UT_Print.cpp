@@ -34,6 +34,7 @@ TEST_F(PrintUnitTests, Test_strlength_String)
     /* Assert */
     EXPECT_EQ(13, result);
 }
+
 TEST_F(PrintUnitTests, Test_strlength_NullTerminator)
 {
     /* Arrange */
@@ -404,4 +405,41 @@ TEST_F(PrintUnitTests, Test_println)
 
     /* Assert */
     EXPECT_EQ(result, 13);
+}
+
+TEST_F(PrintUnitTests, Test_isOdd_Even_Number)
+{
+    /* Arrange */
+    /* Act */
+    result = isOdd(8);
+
+    /* Assert */
+    EXPECT_EQ(result, false);
+}
+TEST_F(PrintUnitTests, Test_isOdd_Odd_Number)
+{
+    /* Arrange */
+    /* Act */
+    result = isOdd(7);
+
+    /* Assert */
+    EXPECT_EQ(result, true);
+}
+TEST_F(PrintUnitTests, Test_isEven_Even_Number)
+{
+    /* Arrange */
+    /* Act */
+    result = isEven(8);
+
+    /* Assert */
+    EXPECT_EQ(result, true);
+}
+TEST_F(PrintUnitTests, Test_isEven_Odd_Number)
+{
+    /* Arrange */
+    /* Act */
+    result = isEven(7);
+
+    /* Assert */
+    EXPECT_EQ(result, false);
 }

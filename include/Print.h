@@ -3,6 +3,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+#include <stdbool.h>
 #include <stdint.h>
 
 /**
@@ -100,6 +101,7 @@ uint8_t printBool(uint8_t value);
  * @return The number of characters printed.
  */
 uint8_t newline(void);
+
 /* Interface Functions */
 extern uint8_t writeByte(uint8_t byte);
 extern uint8_t writeBytes(const uint8_t* buffer, uint8_t size);
